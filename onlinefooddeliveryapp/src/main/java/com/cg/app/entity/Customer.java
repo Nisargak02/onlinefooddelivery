@@ -1,11 +1,20 @@
 package com.cg.app.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Customer {
 	
 	@Id
@@ -16,8 +25,10 @@ public class Customer {
 	private Integer age;
 	private String gender;
 	private String mobileNumber;
-	private Address address;
 	private String email;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	private Address address;
 	
 	
 
