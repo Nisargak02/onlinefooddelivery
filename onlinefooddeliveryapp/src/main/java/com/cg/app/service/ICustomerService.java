@@ -1,7 +1,6 @@
 package com.cg.app.service;
 
 import com.cg.app.entity.Customer;
-import com.cg.app.entity.Restaurant;
 import java.util.List;
 
 public interface ICustomerService {

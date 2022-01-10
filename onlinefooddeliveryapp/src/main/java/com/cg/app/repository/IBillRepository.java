@@ -11,10 +11,10 @@ public interface IBillRepository extends JpaRepository<Bill,Integer>{
 	
 	public Bill addBill(Bill bill);
 	public Bill updateBill(Bill bill);
-	public Bill removeBill(Bill bill);
-	public Bill viewBill(Bill bill);
+	public Bill removeBill(Integer billId);
+	public Bill viewBill(Integer billId);
 	public List<Bill> viewBills(LocalDate startDate,LocalDate endDate);
-	public List<Bill> viewBills(String custId);
+	public List<Bill> viewBills(Integer custId);
 	public double calculateTotalCost(Bill bill);
 	
 

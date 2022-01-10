@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 public class Bill {
 	
 	@Id
-	private String billId;
+	private Integer billId;
 	private LocalDateTime billDate;
 	
 	@OneToOne(cascade = CascadeType.ALL)

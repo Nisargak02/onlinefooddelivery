@@ -1,8 +1,8 @@
 package com.cg.app.service;
 
 import com.cg.app.entity.Customer;
-import com.cg.app.entity.Restaurant;
 import com.cg.app.repository.ICustomerRepository;
+import com.cg.app.exceptions.CustomerNotFoundException;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -29,33 +29,49 @@ public class ICustomerServiceImpl implements ICustomerService{
 		return savedCustomer;
 	}
 
+	@SuppressWarnings("unused")
 	@Override
-	public Customer updateCustomer(Customer customer) {
+	public Customer updateCustomer(Customer customer) throws CustomerNotFoundException {
 		
 		Optional<Customer> opt=customerRepo.findById(customer.getCustomerId());
+		if(opt.isPresent()) {
+			Customer existingCustomer=opt.get();
+			return customerRepo.save(customer);
+		}
+		else
+		throw new CustomerNotFoundException("Invalid Customer");
+
+	}
+
+	@Override
+	public Customer removeCustomer(Integer customerId) throws CustomerNotFoundException{
+		
+		Optional<Customer> opt=customerRepo.findById(customerId);
+		
+		if(opt.isPresent()) {
+			Customer customer=opt.get(); 
+			customerRepo.delete(customer);
+			
+			return customer;
+		}
+
+		throw new CustomerNotFoundException("Invalid Customer");
+	}
+
+	@SuppressWarnings("unused")
+	@Override
+	public Customer viewCustomer(Integer customerId){
+		
+		Optional<Customer> opt=customerRepo.findById(customerId);
+		Customer customer=viewCustomer(customerId);	
 		return customer;
-	}
-
-	@Override
-	public Customer removeCustomer(Integer customerId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Customer viewCustomer(Integer customerId) {
-		// TODO Auto-generated method stub
-		return null;
+		
 	}
 
 	@Override
 	public List<Customer> viewAllCustomers() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return customerRepo.findAll();
 	}
-	
-	
-	
-	
 	
 }
