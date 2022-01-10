@@ -17,6 +17,7 @@ public class ICustomerServiceImpl implements ICustomerService{
 	private ICustomerRepository customerRepo;
 	@Override
 	public Customer addCustomer(Customer customer) {
+		customerRepo.save(customer);
 		// TODO Auto-generated method stub
 		return null;
 	}

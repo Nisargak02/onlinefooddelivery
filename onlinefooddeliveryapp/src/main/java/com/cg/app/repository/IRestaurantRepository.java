@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.cg.app.entity.Restaurant;
 
-public interface IRestaurantRepository {
+public interface IRestaurantRepository  {
 	
 	public Restaurant addRestaurant(Restaurant res);
 	public Restaurant updateRestaurant(Restaurant res);
