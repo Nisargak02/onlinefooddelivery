@@ -4,21 +4,26 @@ import com.cg.app.entity.Customer;
 import com.cg.app.entity.Restaurant;
 import com.cg.app.repository.ICustomerRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-
+@Slf4j
 public class ICustomerServiceImpl implements ICustomerService{
 	
 	@Autowired
 	private ICustomerRepository customerRepo;
 	@Override
 	public Customer addCustomer(Customer customer) {
-		customerRepo.save(customer);
-		// TODO Auto-generated method stub
+				
+		log.info("Inside the addCustomer method");
+		Customer savedCustomer= customerRepo.save(customer);
+		log.debug("Customer saved with the ID:"+savedCustomer.getCustomerId());
+		
 		return null;
 	}
 
