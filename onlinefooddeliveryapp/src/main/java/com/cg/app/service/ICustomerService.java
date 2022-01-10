@@ -8,8 +8,8 @@ public interface ICustomerService {
 	
 	public Customer addCustomer(Customer customer);
 	public Customer updateCustomer(Customer customer);
-	public Customer removeCustomer(Customer customer);
-	public Customer viewCustomer(Customer customer);
-	public List<Customer> viewAllCustomers(Restaurant rest);
+	public Customer removeCustomer(Integer customerId);
+	public Customer viewCustomer(Integer customerId);
+	public List<Customer> viewAllCustomers();
 	
 }

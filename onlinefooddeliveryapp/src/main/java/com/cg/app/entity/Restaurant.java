@@ -8,6 +8,8 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -16,13 +18,16 @@ import javax.persistence.OneToOne;
 @AllArgsConstructor
 public class Restaurant {
 	
+	@Id
 	private String restaurantId;
 	private String restaurantName;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	private Address address;
+	@ManyToMany(cascade = CascadeType.ALL,mappedBy="restaurants")
 	private List<Item> itemList;
 	private String managerName;
 	private String contactNumber;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	private Address address;
 
 }

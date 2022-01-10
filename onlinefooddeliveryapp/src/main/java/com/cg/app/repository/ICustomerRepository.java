@@ -12,11 +12,7 @@ import com.cg.app.entity.Restaurant;
 @Repository
 public interface ICustomerRepository extends JpaRepository<Customer,Integer>{
 	
-	public Customer addCustomer(Customer customer);
-	public Customer updateCustomer(Customer customer);
-	public Customer removeCustomer(Customer customer);
-	public Customer viewCustomer(Customer customer);
-	public List<Customer> viewAllCustomers(Restaurant rest);
+	
 	
 
 }

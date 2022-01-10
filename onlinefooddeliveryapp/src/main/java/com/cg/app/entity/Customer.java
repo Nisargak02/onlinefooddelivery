@@ -32,6 +32,9 @@ public class Customer {
 	@OneToOne(cascade = CascadeType.ALL)
 	private Address address;
 	
+	@OneToOne(cascade = CascadeType.ALL,mappedBy="customer")
+	private FoodCart foodCart;
+	
 	
 	
 	

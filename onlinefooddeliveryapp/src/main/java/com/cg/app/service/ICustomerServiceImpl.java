@@ -7,6 +7,7 @@ import com.cg.app.repository.ICustomerRepository;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,24 +31,25 @@ public class ICustomerServiceImpl implements ICustomerService{
 
 	@Override
 	public Customer updateCustomer(Customer customer) {
+		
+		Optional<Customer> opt=customerRepo.findById(customer.getCustomerId());
+		return customer;
+	}
+
+	@Override
+	public Customer removeCustomer(Integer customerId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Customer removeCustomer(Customer customer) {
+	public Customer viewCustomer(Integer customerId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Customer viewCustomer(Customer customer) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Customer> viewAllCustomers(Restaurant rest) {
+	public List<Customer> viewAllCustomers() {
 		// TODO Auto-generated method stub
 		return null;
 	}

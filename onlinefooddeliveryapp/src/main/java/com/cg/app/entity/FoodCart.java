@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -17,9 +18,10 @@ import javax.persistence.OneToOne;
 @AllArgsConstructor
 public class FoodCart {
 	
+	@Id
 	private String cartId;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy="foodCart")
 	private List<Item> itemList;
 	
 	@OneToOne(cascade = CascadeType.ALL)

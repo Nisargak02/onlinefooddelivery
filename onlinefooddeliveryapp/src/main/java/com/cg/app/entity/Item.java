@@ -4,8 +4,9 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,10 +18,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Item {
 	
+	@Id
 	private String itemId;
 	private String itemName;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL)
 	private Category category;
 	private Integer quantity;
 	private double cost;
@@ -28,5 +30,7 @@ public class Item {
 	@ManyToMany(cascade = CascadeType.ALL)
 	private List<Restaurant> restaurants;
 	
+	@ManyToOne(cascade = CascadeType.ALL)
+	private FoodCart foodCart;
 
 }
