@@ -19,7 +19,6 @@ public class CustomerController {
 	@Autowired
 	private ICustomerService customerService;
 	
-	
 	@PostMapping("/addCustomer")
 	public Customer registerCustomerHandler(@RequestBody Customer customer) {
 		
