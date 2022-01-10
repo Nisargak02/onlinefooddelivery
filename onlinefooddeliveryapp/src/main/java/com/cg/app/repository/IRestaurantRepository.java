@@ -2,9 +2,11 @@ package com.cg.app.repository;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
 import com.cg.app.entity.Restaurant;
 
-public interface IRestaurantRepository  {
+public interface IRestaurantRepository  extends JpaRepository<Restaurant,Integer>{
 	
 	public Restaurant addRestaurant(Restaurant res);
 	public Restaurant updateRestaurant(Restaurant res);

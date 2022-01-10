@@ -17,6 +17,7 @@ public class ICustomerServiceImpl implements ICustomerService{
 	
 	@Autowired
 	private ICustomerRepository customerRepo;
+	
 	@Override
 	public Customer addCustomer(Customer customer) {
 				
@@ -24,7 +25,7 @@ public class ICustomerServiceImpl implements ICustomerService{
 		Customer savedCustomer= customerRepo.save(customer);
 		log.debug("Customer saved with the ID:"+savedCustomer.getCustomerId());
 		
-		return null;
+		return savedCustomer;
 	}
 
 	@Override

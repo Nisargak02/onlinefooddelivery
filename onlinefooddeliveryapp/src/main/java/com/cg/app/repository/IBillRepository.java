@@ -3,9 +3,11 @@ package com.cg.app.repository;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
 import com.cg.app.entity.Bill;
 
-public interface IBillRepository {
+public interface IBillRepository extends JpaRepository<Bill,Integer>{
 	
 	public Bill addBill(Bill bill);
 	public Bill updateBill(Bill bill);
