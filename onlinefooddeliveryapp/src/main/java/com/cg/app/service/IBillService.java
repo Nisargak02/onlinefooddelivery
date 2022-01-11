@@ -9,11 +9,11 @@ import com.cg.app.exceptions.BillNotFoundException;
 public interface IBillService {
 	
 	public Bill addBill(Bill bill);
-	public Bill updateBill(Bill bill);
+	public Bill updateBill(Bill bill) throws BillNotFoundException;
 	public Bill removeBill(Integer billId) throws BillNotFoundException;
 	public Bill viewBill(Integer billId);
 	public List<Bill> viewBills(LocalDate startDate,LocalDate endDate);
-	public List<Bill> viewBills(Integer custId);
+	public List<Bill> viewBills();
 	public double calculateTotalCost(Bill bill);
 	
 

@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.cg.app.entity.Bill;
 import com.cg.app.exceptions.BillNotFoundException;
-import com.cg.app.exceptions.CustomerNotFoundException;
 import com.cg.app.repository.IBillRepository;
 
 import java.util.Optional;
@@ -34,7 +33,7 @@ public class IBillServiceImpl implements IBillService {
 
 	@SuppressWarnings("unused")
 	@Override
-	public Bill updateBill(Bill bill) throws CustomerNotFoundException{
+	public Bill updateBill(Bill bill) throws BillNotFoundException{
 		
 		Optional<Bill> opt=billRepo.findById(bill.getBillId());
 		if(opt.isPresent()) {
@@ -42,7 +41,7 @@ public class IBillServiceImpl implements IBillService {
 			return billRepo.save(bill);
 		}
 
-		throw new CustomerNotFoundException("Invalid Customer");
+		throw new BillNotFoundException("Invalid Bill");
 	}
 
 	@Override
@@ -74,13 +73,13 @@ public class IBillServiceImpl implements IBillService {
 	}
 
 	@Override
-	public List<Bill> viewBills(Integer custId){
-		return null;
+	public List<Bill> viewBills(){
+		return billRepo.findAll();
 	}
 
 	@Override
 	public double calculateTotalCost(Bill bill) {
-		// TODO Auto-generated method stub
+		
 		return 0;
 	}
 	
