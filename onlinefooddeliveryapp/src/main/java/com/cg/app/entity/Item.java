@@ -1,5 +1,6 @@
 package com.cg.app.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -9,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,18 +25,23 @@ public class Item {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String itemId;
+	private Integer itemId;
+	
 	private String itemName;
+	
+	private Integer quantity;
+	
+	private Double cost;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
 	private Category category;
-	private Integer quantity;
-	private double cost;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
-	private List<Restaurant> restaurants;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL,mappedBy = "itemList")
+	private List<Restaurant> restaurants=new ArrayList<Restaurant>();
+	
+	@ManyToOne(cascade = CascadeType.ALL,optional = true)
+	@JsonIgnore
 	private FoodCart foodCart;
 
 }

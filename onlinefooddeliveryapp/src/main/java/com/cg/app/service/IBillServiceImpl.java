@@ -1,87 +1,59 @@
 package com.cg.app.service;
 
+
 import java.time.LocalDate;
 import java.util.List;
 
-import com.cg.app.entity.Bill;
-import com.cg.app.exceptions.BillNotFoundException;
-import com.cg.app.repository.IBillRepository;
-
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import lombok.extern.slf4j.Slf4j;
+import com.cg.app.entity.Bill;
+import com.cg.app.exceptions.BillException;
+
 
 @Service
-@Slf4j
-public class IBillServiceImpl implements IBillService {
-	
-	@Autowired
-	private IBillRepository billRepo;
+public class IBillServiceImpl implements IBillService{
 
+	
 	@Override
 	public Bill addBill(Bill bill) {
-
-		log.info("Inside the addBill method");
-		Bill savedBill= billRepo.save(bill);
-		log.debug("Customer saved with the ID:"+savedBill.getBillId());
-		
-		return savedBill;
-	}
-
-	@SuppressWarnings("unused")
-	@Override
-	public Bill updateBill(Bill bill) throws BillNotFoundException{
-		
-		Optional<Bill> opt=billRepo.findById(bill.getBillId());
-		if(opt.isPresent()) {
-			Bill existingBill=opt.get();
-			return billRepo.save(bill);
-		}
-
-		throw new BillNotFoundException("Invalid Bill");
-	}
-
-	@Override
-	public Bill removeBill(Integer billId) throws BillNotFoundException {
-		
-		Optional<Bill> opt=billRepo.findById(billId);
-		if(opt.isPresent()) {
-			Bill bill=opt.get(); 
-			billRepo.delete(bill);
-			
-			return bill;
-		}
-
-		throw new BillNotFoundException("Invalid Bill");
-	}
-
-	@SuppressWarnings("unused")
-	@Override
-	public Bill viewBill(Integer billId) {
-		Optional<Bill> opt=billRepo.findById(billId);
-		Bill bill=viewBill(billId);
-		return bill;
-	}
-
-	@Override
-	public List<Bill> viewBills(LocalDate startDate, LocalDate endDate) {
-		
+		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Bill> viewBills(){
-		return billRepo.findAll();
+	public Bill updateBill(Bill bill) throws BillException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public double calculateTotalCost(Bill bill) {
-		
+	public Bill removeBill(Integer billId) throws BillException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Bill viewBill(Integer billId) throws BillException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Bill> viewBills(LocalDate startDate, LocalDate endDate) throws BillException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Bill> viewBills(String custId) throws BillException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public double calculateTotalCost(Bill bill) throws BillException {
+		// TODO Auto-generated method stub
 		return 0;
 	}
 	
-
 }

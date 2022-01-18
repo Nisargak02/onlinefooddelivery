@@ -22,11 +22,14 @@ public class OrderDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer orderId;
+		
 	private LocalDateTime orderDate;
+	
+	private String orderStatus;
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private FoodCart cart;
-	private String orderStatus;
+
 	
 
 }

@@ -1,16 +1,12 @@
 package com.cg.app.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.cg.app.entity.Category;
-
+@Repository
 public interface ICategoryRepository extends JpaRepository<Category,Integer>{
 	
-	/*public Category addCategory(Category cat);
-	public Category updateCategory(Category cat);
-	public Category removeCategory(Category cat);
-	public Category viewCategory(Category cat);
-	public List<Category> viewAllCategory();*/
-
-
+	public Category findByCategoryName(String catName);
+	
 }

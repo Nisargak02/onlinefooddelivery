@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -22,13 +23,17 @@ public class Restaurant {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private String restaurantId;
+	private Integer restaurantId;
+	
 	private String restaurantName;
 	
-	@ManyToMany(cascade = CascadeType.ALL,mappedBy="restaurants")
-	private List<Item> itemList;
 	private String managerName;
+	
 	private String contactNumber;
+	
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	private List<Item> itemList=new ArrayList<Item>();
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private Address address;

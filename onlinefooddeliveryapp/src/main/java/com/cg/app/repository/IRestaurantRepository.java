@@ -1,19 +1,11 @@
 package com.cg.app.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.cg.app.entity.Restaurant;
 
+@Repository
 public interface IRestaurantRepository  extends JpaRepository<Restaurant,Integer>{
-	
-	/*public Restaurant addRestaurant(Restaurant res);
-	public Restaurant updateRestaurant(Restaurant res);
-	public Restaurant removeRestaurant(Restaurant res);
-	public Restaurant viewRestaurant(Restaurant res);
-	public List<Restaurant> viewNearByRestaurant(String location);
-	public List<Restaurant> viewRestaurantByItemName(String name);*/
-	
-	
-	
 
 }

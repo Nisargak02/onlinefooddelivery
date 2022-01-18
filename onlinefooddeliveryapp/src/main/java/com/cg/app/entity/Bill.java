@@ -22,7 +22,13 @@ public class Bill {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer billId;
+
 	private LocalDateTime billDate;
+	
+	private Integer totalItem;
+	
+	private Double totalCost;
+
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private OrderDetails order;
