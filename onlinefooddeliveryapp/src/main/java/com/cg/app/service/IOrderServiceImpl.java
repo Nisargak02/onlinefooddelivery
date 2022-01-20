@@ -57,11 +57,11 @@ public class IOrderServiceImpl implements IOrderService {
 		Optional<OrderDetails> opt= orderRepo.findById(order);
 	
 		if(opt.isPresent()) {
-			OrderDetails order= opt.get();
-			orderRepo.delete(order);
+			OrderDetails orders= opt.get();
+			orderRepo.delete(orders);
 		
-		return order;
-	}
+		return orders;
+
 		else
 			throw new OrderException("order does not exits with Id:" +order);
 	}
@@ -70,9 +70,9 @@ public class IOrderServiceImpl implements IOrderService {
 		Optional<OrderDetails> opt= orderRepo.findById(order);
 		
 		if(opt.isPresent()) {
-			OrderDetails order=opt.get();
+			OrderDetails orders=opt.get();
 		
-		return order;
+		return orders;
 	}
 		else
 			throw new OrderException("order does not exits with Id:" +order);
@@ -87,10 +87,6 @@ public class IOrderServiceImpl implements IOrderService {
 		throw new OrderException("No orders found");
 	}
 
-	@Override
-	public List<OrderDetails> viewAllOrders(Customer customer) throws OrderException, CustomerException {
-		
-		return null;
-	}
+	
 	
 }
