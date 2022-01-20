@@ -36,7 +36,7 @@ public class ICustomerServiceImpl implements ICustomerService{
 		//giving cartId as same as customer Id
 		cart.setCartId(savedCustomer.getCustomerId());
 	
-		//associating FoodCart obj with the customer
+		//associating FoodCart object with the customer
 		cart.setCustomer(customer);
 		
 		
