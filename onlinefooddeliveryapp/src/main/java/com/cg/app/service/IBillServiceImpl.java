@@ -34,7 +34,7 @@ public class IBillServiceImpl implements IBillService{
 		order.setOrderId(savedBill.getBillId());
 	
 		//associating OrderDetails object with the bill
-		//order.setBill(bill);
+//		order.setBill(bill);
 		
 		
 		//orderRepo.save(order);
