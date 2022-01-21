@@ -113,6 +113,15 @@ public class CustomerController {
 	}
 	
 	
+	
+	
+	@DeleteMapping("/remove/{cid}")
+	public Customer removeCustomer(@PathVariable("cid") Integer cId) {
+		
+		return  customerService.removeCustomer(cId);
+		
+	}
+	
 	@GetMapping("/view/{cid}")
 	public ResponseEntity<Customer> viewCustomer(@PathVariable("cid") Integer cId){
 		
@@ -122,13 +131,6 @@ public class CustomerController {
 		
 	}
 	
-	
-	@DeleteMapping("/remove/{cid}")
-	public Customer removeCustomer(@PathVariable("cid") Integer cId) {
-		
-		return  customerService.removeCustomer(cId);
-		
-	}
 	
 	@GetMapping("/viewall")
 	public List<Customer> viewAllCustomers(){
